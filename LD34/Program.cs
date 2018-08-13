@@ -5,15 +5,21 @@ namespace LD34 {
     /// <summary>
     /// The main class.
     /// </summary>
-    public static class Program
-    {
+    public static class Program {
+        private static LD34Game game;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
-            using (var game = new Game1())
+        static void Main() {
+            using (game = new LD34Game())
+                game.Run();
+        }
+
+        public static void Restart() {
+            game.Exit();
+            using (game = new LD34Game())
                 game.Run();
         }
     }
